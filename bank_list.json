@@ -1,0 +1,12 @@
+[
+    {
+        "bankName": "NSBank",
+        "bankURL": "https://nsbank.ru/person/dragmetally/",
+        "isImposter": false
+    },
+    {
+        "bankName": "SovComBank",
+        "bankURL": "https://sovcombank.ru/investments/metal",
+        "isImposter": true
+    }
+]
