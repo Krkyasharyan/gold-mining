@@ -53,7 +53,7 @@ async function parse_SovComBank(page, url, isImposter) {
 });
 
 async function randomHumanDelay(page) {
-    await page.waitForTimeout(Math.random() * 1000 + 3000);
+    await page.waitForTimeout(Math.random() * 5000 + 3000);
     await page.evaluate(() => window.scrollBy(0, window.innerHeight));
   }
 

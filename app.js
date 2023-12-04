@@ -9,19 +9,20 @@ puppeteer.use(StealthPlugin());
 const { parse_NSBank, parse_SovComBank } = require('./parsers');
 
 async function scrapeBankWebsite(bank_name, url, isImposter) {
+  
   try {
     const browser = await puppeteer.launch({ headless: 'new'}); // false, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
 
     // Create a new random user-agent
-    const userAgent = new UserAgent();
+    const userAgent = new UserAgent({ deviceCategory: 'desktop'});
     const userAgentData = userAgent.data;
 
     // Set up headers with userAgent data
     const headers = {
       "Accept": 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
       "Accept-Encoding": 'gzip, deflate, br',
-      "Accept-Language": 'en-US,en;q=0.9',
+      "Accept-Language": 'ru-RU;q=0.9',
       "Cache-Control": 'max-age=0',
       "Sec-Ch-Ua": `"${userAgentData.vendor};v="${userAgentData.browserVersion}, "Not?A_Brand";v="24"`,
       "Sec-Ch-Ua-Mobile": '?0',
