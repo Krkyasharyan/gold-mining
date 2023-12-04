@@ -11,8 +11,10 @@ const { parse_NSBank, parse_SovComBank } = require('./parsers');
 async function scrapeBankWebsite(bank_name, url, isImposter) {
   
   try {
-    const browser = await puppeteer.launch({ headless: 'new'}); // false, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-    const page = await browser.newPage();
+    const browser = await puppeteer.launch({ headless: 'new' }); // false, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    // Create a new incognito browser context
+    const context = await browser.createIncognitoBrowserContext();
+    const page = await context.newPage();
 
     // Create a new random user-agent
     const userAgent = new UserAgent({ deviceCategory: 'desktop'});
@@ -24,13 +26,12 @@ async function scrapeBankWebsite(bank_name, url, isImposter) {
       "Accept-Encoding": 'gzip, deflate, br',
       "Accept-Language": 'ru-RU;q=0.9',
       "Cache-Control": 'max-age=0',
-      "Sec-Ch-Ua": `"${userAgentData.vendor};v="${userAgentData.browserVersion}, "Not?A_Brand";v="24"`,
+      "Sec-Ch-Ua": `"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"`,
       "Sec-Ch-Ua-Mobile": '?0',
       "Sec-Ch-Ua-Platform": `"${userAgentData.platform}"`,
       "Sec-Fetch-Dest": 'document',
       "Sec-Fetch-Mode": 'navigate',
       "Sec-Fetch-Site": 'same-origin',
-      "Sec-Fetch-User": '?1',
       "Upgrade-Insecure-Requests": '1',
       "User-Agent": userAgent.toString(),
     };

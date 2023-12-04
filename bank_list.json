@@ -1,12 +1,12 @@
 [
     {
+        "bankName": "SovComBank",
+        "bankURL": "https://prod-api.sovcombank.ru/private/metal?lang=ru",
+        "isImposter": true
+    },
+    {
         "bankName": "NSBank",
         "bankURL": "https://nsbank.ru/person/dragmetally/",
         "isImposter": false
-    },
-    {
-        "bankName": "SovComBank",
-        "bankURL": "https://sovcombank.ru/investments/metal",
-        "isImposter": true
     }
 ]

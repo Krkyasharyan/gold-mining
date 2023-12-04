@@ -1,4 +1,12 @@
 bank_name,gold_weight,price
+SovComBank,5,31356.00
+SovComBank,10,62712.00
+SovComBank,20,125424.00
+SovComBank,50,309037.50
+SovComBank,100,615060.00
+SovComBank,250,1537650.00
+SovComBank,500,3045150.00
+SovComBank,999.9,6029397.00
 NSBank,5 г,31400₽
 NSBank,10 г,62000₽
 NSBank,20 г,123200₽
